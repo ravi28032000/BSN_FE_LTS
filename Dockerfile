@@ -28,6 +28,10 @@ COPY package.json package-lock.json ./
 RUN npm install
 
 COPY . .
+ARG GIT_USER_EMAIL
+ARG GIT_USER_NAME
+RUN git config --global user.email "${GIT_USER_EMAIL}" \
+    && git config --global user.name "${GIT_USER_NAME}"
 RUN npm run build --prod
 
 # Stage 2: Serve the Angular application with Nginx
