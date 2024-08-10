@@ -1,0 +1,44 @@
+<div  style="margin-left: 5%;">
+    <form [formGroup]="mobileform" >
+        <div class="row col-12">
+            <div class="col-md-5">
+                <mat-form-field appearance="outline">
+                    <mat-label>Old Mobile nummber</mat-label>
+                    <input type="text" readonly matInput formControlName="oldnumber">
+                </mat-form-field>
+
+            </div>
+            <div class="col-md-2">
+                <mat-icon>arrow_right_alt</mat-icon><br/>
+                <mat-icon>arrow_right_alt</mat-icon>
+            </div>
+            <div class="col-md-5">
+                <mat-form-field appearance="outline">
+                    <mat-label>New Mobile nummber</mat-label>
+                    <input type="number" matInput formControlName="newnumber" (input)="alphaNumberOnly($event)"
+                    (keypress)="alphaNumberOnly($event)" (paste)="onPaste($event)">
+                </mat-form-field>
+
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <div class="row col-12">
+            <div class="col-md-6">
+                <button type="button" class="cancel" style="height:60%;float:center;" (click)="cancel()">Cancel</button>
+            </div>
+            <div class="col-md-6">
+                <button type="button" class="sub" style="height:50%" (click)="submit()">Submit</button>
+            </div>
+
+        </div>
+    </form>
+    <div [ngClass]="spinshow?'overlay':''">
+        <div>
+            <mat-progress-spinner *ngIf="spinshow" style="margin-left: 40%;margin-top: 20%;" diameter=50 
+                                  mode="indeterminate" 
+                                  color="warn">
+            </mat-progress-spinner> 
+        </div>
+        </div>
+</div>

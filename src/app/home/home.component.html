@@ -1,0 +1,101 @@
+<div style="font-family:'Times New Roman', Times, serif;">
+    <mat-card class="center">
+        <div class="row col-12">
+            <div class="col-md-4">
+                <button type="button" class="logout"  (click)="logout()">Logout<mat-icon matSuffix>logout</mat-icon></button>
+                <!-- <p style="float: left;"><b>Email Id:<b>(</b></b>{{email}}<b>)</b></p><br/> -->
+            </div>
+            <div class="col-md-8">
+                <p style="float: right;"><b>Name:</b>{{username}}<b>(</b>{{custome_time}}<b>s)</b></p><br/>
+                <!-- <p class="mobile_number_style" ><b>Mobile No:</b><b>(</b>{{mobile_num}}<b>)</b></p> -->
+            </div>
+        
+        </div>
+        <div class="row col-12">
+            <div class="col-md-4">
+                <!-- <button type="button" class="logout" style="height:60%" (click)="logout()">Logout<mat-icon matSuffix>logout</mat-icon></button> -->
+                <p style="float: left;"><b>Email Id:<b>(</b></b>{{email}}<b>)</b></p><br/>
+            </div>
+            <div class="col-md-8">
+                <!-- <p style="float: right;"><b>Name:</b>{{username}}</p><br/> -->
+                <p  style="float: right;"><b>Mobile No:</b><b>(</b>{{mobile_num}}<b>)</b></p>
+            </div>
+        
+        </div>
+        <hr>
+        <div class="row col-12"  *ngIf="menuenb">
+            <div class="col-md-4">
+                <button type="button" class="btn-grad"  (click)="withdraw()">Cash WithDraw</button>
+
+            </div>
+            <div class="col-md-5">
+                <button type="button" class="btn-grad1"  (click)="amounttransfer()">Amount Transfer</button>
+
+            </div>
+            <div class="col-md-3" >
+                <button type="button" class="btn-grad2" style="height:33%" (click)="mobilenumberupdate()">Mobile Number Update</button>
+
+            </div>
+
+        </div>
+        <div class="row col-12" style="height: 98%;" *ngIf="menuenb"> <!--style="height: 130px;"-->
+            <div class="col-md-4">
+                <button type="button" class="btn-grad" style="height:25%;margin-top: 20%;" (click)="balancecheck()">Balance Check</button>
+
+            </div>
+            <div class="col-md-5">
+                <img src="assets/worldcircle.png" alt="" style="width: 85%;height: 98%;margin-top:-10%">
+                <!--style="width: 300px;height:300px;margin-top:-30%;margin-left:-10% ;"-->
+
+            </div>
+            <div class="col-md-3">
+                <button type="button" class="btn-grad2" style="height:25%;margin-top: 20%;" (click)="pincodechange()">Pin Code Change</button>
+
+            </div>
+
+        </div>
+        <div class="row col-12" *ngIf="menuenb"><!--style="height: 130px;margin-top: 10%;" -->
+            <div class="col-md-4">
+                <button type="button" class="btn-grad"  (click)="transactionhistory()">Transaction History</button>
+
+            </div>
+            <div class="col-md-5">
+                <button type="button" class="btn-grad1" >Profile Update</button>
+
+            </div>
+            <div class="col-md-3">
+                <button type="button" class="btn-grad2"  (click)="deposit()">Deposit</button>
+
+            </div>
+
+        </div>
+        
+        <div *ngIf="iswithdrawend">
+            <app-withdraw (newItemEvent)="addItem()"></app-withdraw>
+        </div>
+        <div *ngIf="isamountenb">
+            <app-amount-transfer (newItemEvent)="addItem()"></app-amount-transfer>
+        </div>
+        <div *ngIf="ismobileenb">
+            <app-mobile-number-update (newItemEvent)="addItem()"></app-mobile-number-update>
+        </div>
+        <div *ngIf="isbalncecheck">
+            <app-balance-check (newItemEvent)="addItem()"></app-balance-check>
+        </div>
+        <div *ngIf="ispincodeenb">
+            <app-pin-code-change (newItemEvent)="addItem()"></app-pin-code-change>
+        </div>
+        <div *ngIf="istranshisferenb">
+            <app-transaction-history (newItemEvent)="addItem()"></app-transaction-history>
+        </div>
+        <div *ngIf="isDeposit"> 
+            <app-deposit (newItemEvent)="addItem()"></app-deposit>
+        </div>
+        <div style="height: 20px;"></div>
+        <ngx-spinner bdColor = "rgba(109,17,145,0.18)" size = "large" color = "black" type = "ball-atom" 
+        [fullScreen] = "false"></ngx-spinner>
+        <ngx-spinner bdColor = "rgba(109,17,145,0.18)" size = "small" color = "yellow" type = "timer" 
+    [fullScreen] = "false"><p style="color: red" > Progress... </p></ngx-spinner>
+    </mat-card>
+   
+</div>

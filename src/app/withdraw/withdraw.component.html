@@ -1,0 +1,39 @@
+<div  style="margin-left: 10%;">
+    <form [formGroup]="withdrawform" >
+        <div class="row col-12">
+            <div class="col-md-6">
+                <mat-form-field style="margin-left:15px ;width: 200px;margin-top: 10px;">
+                <input matInput placeholder="Enter Amount" formControlName="amount" type="nummber" (input)="alphaNumberOnly($event)"
+                (keypress)="alphaNumberOnly($event)" (paste)="onPaste($event)">
+                <mat-icon matSuffix *ngIf="(withdrawform.get('amount').valid ||  withdrawform.get('amount').untouched)">monetization_on</mat-icon><!--<mat-icon>error</mat-icon>-->
+                <mat-icon *ngIf="(withdrawform.get('amount').invalid && withdrawform.get('amount').touched )" matSuffix style="background-color: red;">error</mat-icon>
+                </mat-form-field><br/>
+            </div>
+            <div class="col-md-6">
+                
+                <mat-radio-button value="1" (click)="saving_current_enb('saving')"><button type="button" class="btn-grad" style="height:40%" >Savings</button></mat-radio-button> 
+            </div>
+        </div>
+        <div class="row col-12">
+            <div class="col-md-6">
+                <button type="button" class="sub" style="height:50%" (click)="submit()">Submit</button>
+            </div>
+            <div class="col-md-6">
+                <mat-radio-button value="1"   (click)="saving_current_enb('current')"><button type="button" class="btn-grad" style="height:60%" >Current</button></mat-radio-button> 
+            </div>
+        </div>
+        <div class="row col-12">
+            <div class="col-md-12">
+                <button type="button" class="cancel" style="height:60%;float:center;" (click)="cancel()">Cancel</button>
+            </div>
+        </div>
+    </form>
+    <div [ngClass]="spinshow?'overlay':''">
+        <div>
+            <mat-progress-spinner *ngIf="spinshow" style="margin-left: 40%;margin-top: 20%;" diameter=50 
+                                  mode="indeterminate" 
+                                  color="warn">
+            </mat-progress-spinner> 
+        </div>
+        </div>
+</div>

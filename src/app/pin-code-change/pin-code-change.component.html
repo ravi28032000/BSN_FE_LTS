@@ -1,0 +1,71 @@
+<div  style="margin-left: 5%;">
+    <form [formGroup]="pinchangeform" >
+        <div class="row col-12">
+            <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input matInput readonly  formControlName="name" type="text" 
+                    (input)="alphaNumberOnly($event)"
+                    (keypress)="alphaNumberOnly($event)" (paste)="onPaste($event)">
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                    <mat-label>Mobile Number</mat-label>
+                    <input matInput readonly  formControlName="mobile" type="text" 
+                    (input)="alphaNumberOnly($event)"
+                    (keypress)="alphaNumberOnly($event)" (paste)="onPaste($event)">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row col-12">
+            <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                    <mat-label>Account No</mat-label>
+                    <input matInput   formControlName="accoutnno" type="text" 
+                    (input)="alphaNumberOnly($event)"
+                    (keypress)="alphaNumberOnly($event)" (paste)="onPaste($event)">
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                    <mat-label>Old Password</mat-label>
+                    <input matInput   formControlName="oldpassword" type="text" 
+                     (paste)="onPaste($event)">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row col-12">
+            <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                    <mat-label>New Password</mat-label>
+                    <input matInput   formControlName="newpassword" type="text" 
+                     (paste)="onPaste($event)">
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                    <mat-label>Confirm Password</mat-label>
+                    <input matInput   formControlName="confirmpassword" type="text" 
+                     (paste)="onPaste($event)">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row col-12">
+            <div class="col-md-6">
+                <button type="button" class="sub" style="height:50%" (click)="submit()">Submit</button>
+            </div>
+            <div class="col-md-6">
+                <button type="button" class="cancel" style="height:60%;float:center;" (click)="cancel()">Cancel</button>
+            </div>
+        </div>
+    </form>
+    <div [ngClass]="spinshow?'overlay':''">
+        <div>
+            <mat-progress-spinner *ngIf="spinshow" style="margin-left: 40%;margin-top: 20%;" diameter=50 
+                                  mode="indeterminate" 
+                                  color="warn">
+            </mat-progress-spinner> 
+        </div>
+        </div>
+</div>

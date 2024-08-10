@@ -1,0 +1,99 @@
+<div class="row col-12">
+    <div class="col-md-6">
+        <h1 style="color: rgb(49, 200, 150);">Transfer From</h1>
+        <form [formGroup]="amounttform_from">
+            
+                <div class="col-md-12">
+                    <mat-form-field style="width:80%" appearance="outline">
+                        <mat-label>Name</mat-label>
+                        <input type="text" readonly matInput formControlName="name" (input)="alphaNumberOnly($event)"
+                        (keypress)="alphaNumberOnly($event)" (paste)="onPaste($event)">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-12">
+                    <mat-form-field style="width:80%" appearance="outline">
+                        <mat-label>Email ID</mat-label>
+                        <input type="text" readonly matInput formControlName="email" (input)="alphaNumberOnly($event)"
+                        (keypress)="alphaNumberOnly($event)" (paste)="onPaste($event)">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-12">
+                    <mat-form-field style="width:80%" appearance="outline">
+                        <mat-label>Mobile Number</mat-label>
+                        <input type="text" readonly matInput formControlName="mobile" (input)="alphaNumberOnly($event)"
+                        (keypress)="alphaNumberOnly($event)" (paste)="onPaste($event)">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-12">
+                    <mat-form-field style="width:80%" appearance="outline">
+                        <mat-label>Account No</mat-label>
+                        <input type="text" readonly matInput formControlName="accountno" (input)="alphaNumberOnly($event)"
+                        (keypress)="alphaNumberOnly($event)" (paste)="onPaste($event)">
+                    </mat-form-field>
+                </div>
+                <br>
+                <br><br>
+                <div class="col-md-12">
+                    <button type="button" class="cancel" style="height:60%;float:center;" (click)="cancel()">Cancel</button>
+                </div>
+            
+        </form>
+
+    </div>
+   
+    <div class="col-md-6">
+        <h1 style="color: rgb(49, 200, 150);">Transfer To</h1>
+        <form [formGroup]="amounttform_receiver">
+            
+                <div class="col-md-12">
+                    <mat-form-field style="width:80%" appearance="outline">
+                        <mat-label>Name</mat-label>
+                        <input type="text" readonly matInput formControlName="name" (input)="alphaNumberOnly($event)"
+                        (keypress)="alphaNumberOnly($event)" (paste)="onPaste($event)">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-12">
+                    <mat-form-field style="width:80%" appearance="outline">
+                        <mat-label>Email ID</mat-label>
+                        <input type="text" readonly matInput formControlName="email" (input)="alphaNumberOnly($event)"
+                        (keypress)="alphaNumberOnly($event)" (paste)="onPaste($event)">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-12">
+                    <mat-form-field style="width:80%" appearance="outline">
+                        <mat-label>Mobile Number</mat-label>
+                        <input type="text" readonly matInput formControlName="mobile" (input)="alphaNumberOnly($event)"
+                        (keypress)="alphaNumberOnly($event)" (paste)="onPaste($event)">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-12">
+                    <mat-form-field style="width:100%" appearance="outline">
+                        <mat-label>Account No</mat-label>
+                        <input type="number"  matInput formControlName="accountno" (input)="alphaNumberOnly($event)"
+                        (keypress)="alphaNumberOnly($event)" >
+                        <button type="button" class="sub" style="height:50%" (click)="acc_submit()" matSuffix>Verify</button>
+                    </mat-form-field>
+                    
+                </div>
+                <div class="col-md-12">
+                    <mat-form-field style="width:80%" appearance="outline">
+                        <mat-label>Enter The Amount</mat-label>
+                        <input type="number"  matInput formControlName="amount" (input)="alphaNumberOnly($event)"
+                        (keypress)="alphaNumberOnly($event)" (paste)="onPaste($event)">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-12">
+                    <button type="button" class="sub" style="height:50%" (click)="final_submit()">Submit</button>
+                </div>
+        </form>
+
+    </div>
+    <div [ngClass]="spinshow?'overlay':''">
+        <div>
+            <mat-progress-spinner *ngIf="spinshow" style="margin-left: 40%;margin-top: 20%;" diameter=50 
+                                  mode="indeterminate" 
+                                  color="warn">
+            </mat-progress-spinner> 
+        </div>
+        </div>
+</div>

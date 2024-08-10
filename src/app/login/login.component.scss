@@ -1,0 +1,170 @@
+.center {
+    margin: auto;
+    width: 25%;
+    border: 3px solid rgb(54, 63, 54) ;
+    // border: linear-gradient(to right, red, purple);
+    padding: 10px;
+    margin-top: 2%;
+    border-image: linear-gradient(45deg, purple, orange) 1;
+    border-radius:10px;
+    min-width: 300px;
+    // background: linear-gradient(white, white) padding-box,
+    //           linear-gradient(to right, darkblue, darkorchid) border-box;
+  }
+//   .module-border-wrap {
+//     max-width: 250px;
+//     padding: 1rem;
+//     position: relative;
+//     border: linear-gradient(to right, red, purple);
+//     padding: 3px;
+//   }
+
+.title{
+    
+    color: #191a18;
+    background-image: -webkit-linear-gradient(45deg, #191a18 20%, #f5ce64 82%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+  
+}
+.titletwo{
+    background: radial-gradient(circle at center center, #12C2E9 0%, #c471ed 50%, #f64f59 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.btn1{
+    border-radius: 12px;
+}
+// .btn2{
+//     border-radius: 12px;
+// }
+.btn1 {
+    width: 150px;
+    height:50px;
+    border-radius:180px;
+    position:relative;
+    // left:calc(50% - 75px);
+    // top:calc(50% - 25px);
+    border-image: linear-gradient(60deg, #f37055,  #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    cursor:pointer;
+    line-height:12px;
+  }
+  
+  .btn1:before {
+    content:'';
+    z-index:1;
+    position:absolute;
+    display:block;
+    width:80%;
+    height:70%;
+    top:15%;
+    left:10%;
+    transition: 0.3s opacity ease-in-out;
+    filter:blur(15px);
+    opacity:0;
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  }
+  
+  .btn1:hover:before {
+    opacity:1;
+    transition: 0.3s opacity ease-in-out;
+    filter:blur(25px);
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);  
+  }
+  
+  .btn1:after {
+    
+    text-align:center;
+    line-height:40px;
+    font-size:18px;
+    color:rgba(235,235,235,1);
+    font-weight:bold;
+    z-index:5;
+    position:absolute;
+    display:block;
+    border-radius:180px;
+    width:92%;
+    height:80%;
+    top:10%;
+    left:4%;  
+    // background-color:rgb(19, 20, 22);
+  }
+  .btn2 {
+    border-radius: 12px;
+    position: relative;
+    color: var(--textColor2);
+    border-radius: 26px;
+    background-image: linear-gradient(90deg, #0065ff, #6942ef, #6554c0, #008cff, #0065ff, #6942ef);
+    background-size: 400%;
+    background-position: 0% 0%;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: -2px;
+      top: -2px;
+      right: -2px;
+      bottom: -2px;
+      border-radius: 26px;
+      background-image: linear-gradient(90deg, #0065ff, #6942ef, #6554c0, #008cff, #0065ff, #6942ef);
+      background-size: 500%;
+      background-position: 0% 0%;
+      filter: blur(10px);
+      opacity: 0;
+      z-index: -1;
+      transition: opacity 0.2s;
+    }
+    
+    &:hover {
+      animation: gradientRotate 2s infinite;
+      &::before {
+        opacity: 1;
+        animation: gradientRotate 2s infinite;
+      }
+    }
+    
+    &:active {
+      color: #c3c4d5;
+    }
+    
+    &:focus {
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+  
+  
+  .btn2 {
+    border-radius: 12px;
+    display: block;
+    margin: 20px 0;
+    min-height: 50px;
+    padding: 13px 24px;
+    font-family: 'Lucida Grande', 'Helvetica', sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-position: top center;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    transition-property: background, color;
+  }
+  @keyframes gradientRotate {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
+  }

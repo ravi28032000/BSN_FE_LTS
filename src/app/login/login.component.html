@@ -1,0 +1,68 @@
+<div  style="font-family:'Times New Roman', Times, serif;">
+  
+    <mat-card  class="center">
+        <br/>
+      <mat-card-title class="title">WELCOME TO XYZ PVT LTD..</mat-card-title><br>
+      <mat-card-title style="text-align: center;" class="titletwo"><br/>
+       <b *ngIf="loginformenb"> User Login</b><b *ngIf="userformenb">User Create</b>
+      </mat-card-title><br/>
+      <mat-card-content *ngIf="loginformenb">
+        <form [formGroup]="loginform" >
+            <mat-form-field style="margin-left:5% ;width: 83%;margin-top: 10px;">
+              <input matInput placeholder="Email" formControlName="email">
+              <mat-icon matSuffix *ngIf="(loginform.get('email').valid ||  loginform.get('email').untouched)">mail_outline</mat-icon><!--<mat-icon>error</mat-icon>-->
+              <mat-icon *ngIf="(loginform.get('email').invalid && loginform.get('email').touched )" matSuffix style="background-color: red;">error</mat-icon>
+            </mat-form-field><br/>
+            <mat-form-field style="margin-left:5% ;width: 83%;margin-top: 15px;" >
+              <input matInput placeholder="Password" formControlName="password" [type]="endp?'text':'password'">
+              <mat-icon matSuffix (click)="passenb()" *ngIf="endp">visibility</mat-icon><!--visibility_off-->
+              <mat-icon matSuffix (click)="passenb()" *ngIf="!endp">visibility_off</mat-icon>
+            </mat-form-field><br/><br/>
+            <button class="btn1" mat-raised-button  style="margin-left: 10%;width: 70%;margin-top: 10px;" color="primary" (click)="login()">Login</button><br/>
+            <button class="btn2" mat-raised-button color="primary" style="margin-left:10%;border-radius: 30px;width: 70%;" (click)="usercreate()">Register</button><br/>
+      
+            <!-- <button class="btn2" mat-raised-button color="primary" style="border-radius: 30px;margin-left: 10%;width: 70%;" (click)="usercreate()">Register</button><br/> -->
+
+        </form>
+      </mat-card-content>
+      <mat-card-content *ngIf="userformenb">
+        <form [formGroup]="userform" >
+          <mat-form-field style="margin-left:15px ;width: 83%;margin-top: 10px;">
+            <input matInput placeholder="User Name" formControlName="name" (input)="alphaNumberOnly($event)"
+             (keypress)="alphaNumberOnly($event)" (paste)="onPaste($event)">
+             <mat-icon matSuffix *ngIf="(userform.get('name').valid ||  userform.get('name').untouched)">supervised_user_circle</mat-icon>
+             <mat-icon *ngIf="(userform.get('name').invalid && userform.get('name').touched )" matSuffix style="background-color: red;">error</mat-icon>
+             <!--<mat-icon>error</mat-icon>-->
+          </mat-form-field><br/>
+          <mat-form-field style="margin-left:15px ;width: 83%;margin-top: 10px;">
+            <input matInput placeholder="Email" formControlName="email">
+            <mat-icon matSuffix *ngIf="(userform.get('email').valid ||  userform.get('email').untouched)">mail_outline</mat-icon><!--<mat-icon>error</mat-icon>-->
+            <mat-icon *ngIf="(userform.get('email').invalid && userform.get('email').touched )" matSuffix style="background-color: red;">error</mat-icon>
+          </mat-form-field><br/>
+          <mat-form-field style="margin-left: 15px;width: 83%;margin-top: 15px;">
+            <input matInput placeholder="Password" formControlName="password" type="password" [type]="endp?'text':'password'">
+            <mat-icon matSuffix  (click)="passenb()" *ngIf="endp">visibility</mat-icon><!--visibility_off * *ngIf="(userform.get('password').valid ||  userform.get('password').untouched)"-->
+            <mat-icon matSuffix (click)="passenb()" *ngIf="!endp">visibility_off</mat-icon>
+            <mat-icon *ngIf="(userform.get('password').invalid && userform.get('password').touched )" matSuffix style="background-color: red;">error</mat-icon>
+          </mat-form-field>
+          <mat-form-field style="margin-left: 15px;width: 83%;margin-top: 15px;">
+            <input matInput placeholder="Mobile No" formControlName="mobile" (keypress)="alphaNumberOnlynumber($event)">
+            <!-- <mat-icon matSuffix>phonelink_setup</mat-icon>visibility_off -->
+            <mat-icon matSuffix *ngIf="(userform.get('mobile').valid ||  userform.get('mobile').untouched)">phonelink_setup</mat-icon><!--visibility_off-->
+            <mat-icon *ngIf="(userform.get('mobile').invalid && userform.get('mobile').touched )" matSuffix style="background-color: red;">error</mat-icon>
+          
+          </mat-form-field><br/><br/>
+          <button class="btn1" mat-raised-button  style="margin-left: 10%;width: 70%;margin-top: 10px;" color="primary" [disabled]="!userform.valid" (click)="usercreatenew()">Create</button><br/>
+          <button class="btn2" mat-raised-button color="primary" style="border-radius: 30px;margin-left: 10%;width: 70%;" (click)="canceldata()">Cancel</button><br/>
+    
+      </form>
+      </mat-card-content>
+      <mat-card-footer style="margin-left:15px" *ngIf="loginformenb"><b>Note:</b>If U Don't Have Account,<br/>Kindly Register and Take Action<br><br/>
+        <br/></mat-card-footer>
+    
+    <br/>
+
+        
+
+    </mat-card>
+    
