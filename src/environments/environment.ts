@@ -6,7 +6,7 @@
 
 export const environment = {
   production: false,
-  "be_url":'http://127.0.0.1:8010/',
+  "be_url":'http://127.0.0.1:8011/',
    BUILD_FUNCTION_CALLED: false,
   //  dt:var_data.date_n
    
